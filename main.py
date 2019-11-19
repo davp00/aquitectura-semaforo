@@ -5,12 +5,19 @@ import RPi.GPIO as GPIO
 
 # iniciando Objetos semaforo
 
-traffic_lights = [ TrafficLight(1,2,3), TrafficLight(1,2,3) ]
+traffic_lights = [ TrafficLight(7,9,11), TrafficLight(8,10,12) ]
 
 # iniciando Pines
 
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(7, GPIO.OUT)
+
+
+for trafl in traffic_lights:
+    for pin in trafl.states:
+        GPIO.setup(pin, GPIO.OUT)
+
+
+
 
 # variables que serviran para el cambio de estados
 tl = 0
